@@ -1,0 +1,87 @@
+form {
+  width: 650px;
+  margin-bottom: 2.5rem;
+}
+
+input {
+  margin-right: 0.5rem;
+}
+
+.weatherCard {
+  width: 650px;
+  min-height: 150px;
+  padding: 1rem 2rem;
+  background-color: rgba(228, 228, 228, 0.3);
+  backdrop-filter: blur(10px);
+  border: none;
+  border-radius: 15px;
+}
+
+.iconWeather {
+  width: 100px;
+  animation: flotar 3s ease-in-out infinite;
+}
+
+@keyframes flotar {
+  0% {
+    scale: 100%;
+  }
+  50% {
+    scale: 85%;
+  }
+  100% {
+    scale: 100%;
+  }
+}
+
+h2 {
+  font-weight: bold;
+}
+.country {
+  font-size: 0.7em;
+  font-weight: lighter;
+}
+
+h5 {
+  font-weight: 600;
+}
+
+.textDataWeather {
+  font-weight: lighter;
+  color: rgb(70, 70, 70);
+}
+
+@media screen and (max-width: 900px) {
+  form {
+    width: 350px;
+    margin-bottom: 2.5rem;
+  }
+
+  input {
+    margin-right: 0.5rem;
+  }
+
+  .weatherCard {
+    width: 350px;
+    min-height: 150px;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 15px;
+  }
+
+  .iconWeather {
+    width: 100px;
+  }
+
+  h2 {
+    font-weight: bold;
+  }
+  .country {
+    font-size: 0.7em;
+    font-weight: lighter;
+  }
+
+  h5 {
+    font-weight: 600;
+  }
+}

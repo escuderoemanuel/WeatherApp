@@ -1,0 +1,36 @@
+.footer {
+  font-size: 0.82em;
+  font-weight: light;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+  bottom: 0;
+  background-color: rgba(228, 228, 228, 0.3);
+  backdrop-filter: blur(5px);
+}
+
+.footerContainer {
+  height: 100%;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.footerContainer p {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #222222;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.logoDev {
+  width: 30px;
+}
