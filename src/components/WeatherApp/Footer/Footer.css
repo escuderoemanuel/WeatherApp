@@ -8,10 +8,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 3rem;
-  bottom: 0;
   background-color: rgba(228, 228, 228, 0.3);
   backdrop-filter: blur(5px);
+  height: 10vh;
 }
 
 .footerContainer {

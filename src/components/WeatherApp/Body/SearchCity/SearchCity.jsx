@@ -50,6 +50,7 @@ export const SearchCity = () => {
             <h2 className='cityName'>
               {dataWeather.data[0].city_name}
               <span className='country'>
+                {' '}
                 {dataWeather.data[0].country_code}
               </span>
             </h2>
