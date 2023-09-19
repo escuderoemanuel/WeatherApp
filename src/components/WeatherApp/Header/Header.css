@@ -19,3 +19,11 @@ span {
 .sunIcon {
   height: 70px;
 }
+
+@media screen and (max-width: 900px) {
+  .header {
+    height: auto;
+    margin: 0;
+    padding: 1rem;
+  }
+}

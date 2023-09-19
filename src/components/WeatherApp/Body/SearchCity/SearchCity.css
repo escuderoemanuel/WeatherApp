@@ -28,7 +28,7 @@ input {
   width: 250px;
   height: 380px;
   padding: 1rem;
-  background-color: rgba(235, 235, 235, 0.5);
+  background-color: rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   border: none;
   border-radius: 15px;
@@ -108,7 +108,8 @@ h5 span {
 
   .weatherCard {
     width: 350px;
-    min-height: 150px;
+    height: 420px;
+
     padding: 1rem 2rem;
     border: none;
     border-radius: 15px;
