@@ -32,9 +32,3 @@
 .logoDev {
   width: 30px;
 }
-
-@media screen and (max-width: 900px) {
-  .footer {
-    margin-top: 2rem;
-  }
-}

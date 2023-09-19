@@ -120,6 +120,10 @@ h5 span {
     margin: 0.5rem;
   }
 
+  .secondaryWeatherCard:last-child {
+    margin-bottom: 2rem;
+  }
+
   .iconWeather {
     width: 100px;
   }
