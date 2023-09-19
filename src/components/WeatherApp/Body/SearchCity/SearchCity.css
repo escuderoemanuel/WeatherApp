@@ -1,7 +1,6 @@
 form {
   width: 650px;
-  margin-bottom: 2.5rem;
-  margin: 1rem;
+  margin-bottom: 1rem;
 }
 
 input {
@@ -10,6 +9,7 @@ input {
 
 .cards {
   flex-wrap: wrap;
+  margin-top: 1rem;
 }
 
 .weatherCard {
@@ -99,7 +99,7 @@ h5 span {
 @media screen and (max-width: 900px) {
   form {
     width: 350px;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1rem;
   }
 
   input {
@@ -108,11 +108,16 @@ h5 span {
 
   .weatherCard {
     width: 350px;
-    height: 420px;
-
+    height: 360px;
     padding: 1rem 2rem;
     border: none;
     border-radius: 15px;
+    margin: 0rem;
+  }
+
+  .secondaryWeatherCard {
+    height: 300px;
+    margin: 0.5rem;
   }
 
   .iconWeather {

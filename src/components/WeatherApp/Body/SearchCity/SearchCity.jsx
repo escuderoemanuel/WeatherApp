@@ -2,7 +2,6 @@ import './SearchCity.css';
 import { useState } from 'react';
 
 export const SearchCity = () => {
-  /* const urlBase = 'https://api.weatherbit.io/v2.0/current'; */
   const urlBase = 'https://api.weatherbit.io/v2.0/forecast/daily';
   const API_KEY = '70270ea0769546c28f7ecf69945bf219';
   const [city, setCity] = useState('');
@@ -38,16 +37,13 @@ export const SearchCity = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    /* if(city.length > 0) fetchWeather() */
     city.length > 0 && fetchWeather();
     setCity('');
   };
 
   const fetchWeather = async () => {
     try {
-      /* const response = await fetch(`${urlBase}?&city=${city}&key=${API_KEY}`); */
       const response = await fetch(`${urlBase}?&city=${city}&key=${API_KEY}`);
-      /* ?city=Raleigh,NC&key=API_KEY */
       const dataResponse = await response.json();
       setDataWeather(dataResponse);
     } catch (error) {
@@ -76,7 +72,7 @@ export const SearchCity = () => {
         <div className='cards d-flex justify-content-center align-items-center'>
           {/* FirstDay */}
           <div className='weatherCard'>
-            <div className='headerCardWeather d-flex align-items-center justify-content-between mb-4'>
+            <div className='headerCardWeather d-flex align-items-center justify-content-between'>
               <h2 className='cityName'>
                 {dataWeather.city_name}
                 <span className='country'>
@@ -144,7 +140,7 @@ export const SearchCity = () => {
             {/* SecondDay */}
             <div className='secondaryWeatherCard'>
               <div className='align-items-center justify-content-around'>
-                <div className='headerCardWeather d-flex align-items-center justify-content-between mb-4'>
+                <div className='headerCardWeather d-flex align-items-center justify-content-between'>
                   <h5>{secondDay}</h5>
                   <img
                     className='iconWeatherSecondary'
@@ -194,7 +190,7 @@ export const SearchCity = () => {
             {/* ThirdDay */}
             <div className='secondaryWeatherCard'>
               <div className='align-items-center justify-content-around'>
-                <div className='headerCardWeather d-flex align-items-center justify-content-between mb-4'>
+                <div className='headerCardWeather d-flex align-items-center justify-content-between'>
                   <h5>{thirdDay}</h5>
                   <img
                     className='iconWeatherSecondary'
@@ -244,7 +240,7 @@ export const SearchCity = () => {
             {/* FourthDay */}
             <div className='secondaryWeatherCard'>
               <div className='align-items-center justify-content-around'>
-                <div className='headerCardWeather d-flex align-items-center justify-content-between mb-4'>
+                <div className='headerCardWeather d-flex align-items-center justify-content-between'>
                   <h5>{fourthDay}</h5>
                   <img
                     className='iconWeatherSecondary'
@@ -294,7 +290,7 @@ export const SearchCity = () => {
             {/* FifthDay */}
             <div className='secondaryWeatherCard'>
               <div className='align-items-center justify-content-around'>
-                <div className='headerCardWeather d-flex align-items-center justify-content-between mb-4'>
+                <div className='headerCardWeather d-flex align-items-center justify-content-between'>
                   <h5>{fifthDay}</h5>
                   <img
                     className='iconWeatherSecondary'

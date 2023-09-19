@@ -13,3 +13,10 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+@media screen and (max-width: 900px) {
+  body {
+    background-image: url('./assets/img/background4.jpg');
+    background-size: auto;
+  }
+}
