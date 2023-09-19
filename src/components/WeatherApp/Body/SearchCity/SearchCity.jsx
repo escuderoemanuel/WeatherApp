@@ -1,35 +1,27 @@
 import './SearchCity.css';
 import { useState } from 'react';
+import PropTypes from 'prop-types';
+
+const urlBase = 'https://api.weatherbit.io/v2.0/forecast/daily';
+const API_KEY = '70270ea0769546c28f7ecf69945bf219';
+
+const daysToShow = [
+  'Sunday',
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
+  'Sunday',
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+];
 
 export const SearchCity = () => {
-  const urlBase = 'https://api.weatherbit.io/v2.0/forecast/daily';
-  const API_KEY = '70270ea0769546c28f7ecf69945bf219';
   const [city, setCity] = useState('');
   const [dataWeather, setDataWeather] = useState(null);
-
-  /* Prueba */
-  const daysToShow = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-  ];
-  const today = new Date();
-  const numberDay = today.getDay();
-  const firstDay = daysToShow[numberDay];
-  const secondDay = daysToShow[numberDay + 1];
-  const thirdDay = daysToShow[numberDay + 2];
-  const fourthDay = daysToShow[numberDay + 3];
-  const fifthDay = daysToShow[numberDay + 4];
-
-  /* FINPrueba */
 
   const handleChangeCity = (e) => {
     setCity(e.target.value);
@@ -51,8 +43,63 @@ export const SearchCity = () => {
     }
   };
 
+  const WeatherCard = ({ dayIndex }) => {
+    const day = daysToShow[(new Date().getDay() + dayIndex) % 7];
+    const weatherData = dataWeather && dataWeather.data[dayIndex];
+    WeatherCard.propTypes = {
+      dayIndex: PropTypes.number.isRequired,
+    };
+
+    return (
+      <div className='secondaryWeatherCard'>
+        {weatherData && (
+          <div className='align-items-center justify-content-around'>
+            <div className='headerCardWeather d-flex align-items-center justify-content-between'>
+              <h5>{day}</h5>
+              <img
+                className='iconWeatherSecondary'
+                src={`https://www.weatherbit.io/static/img/icons/${weatherData.weather.icon}.png`}
+                alt='Weather Icon'
+              />
+            </div>
+            <h6>
+              Min Temp:{' '}
+              <span className='textDataWeather'>{weatherData.min_temp}°C</span>
+            </h6>
+            <h6>
+              Max Temp:{' '}
+              <span className='textDataWeather'>{weatherData.max_temp}°C</span>
+            </h6>
+            <h6>
+              Condition:{' '}
+              <span className='textDataWeather'>
+                {weatherData.weather.description}
+              </span>
+            </h6>
+            <h6>
+              Precipitation:{' '}
+              <span className='textDataWeather'>{weatherData.precip}%</span>
+            </h6>
+            <h6>
+              Wind Direction:{' '}
+              <span className='textDataWeather'>
+                {weatherData.wind_cdir_full}
+              </span>
+            </h6>
+            <h6>
+              Wind Speed:{' '}
+              <span className='textDataWeather'>
+                {weatherData.wind_spd} km/h
+              </span>
+            </h6>
+          </div>
+        )}
+      </div>
+    );
+  };
+
   return (
-    <div className=' d-flex flex-column align-items-center justify-content-center'>
+    <div className='d-flex flex-column align-items-center justify-content-center'>
       <form className='d-flex' onSubmit={handleSubmit}>
         <input
           type='city'
@@ -63,25 +110,18 @@ export const SearchCity = () => {
           value={city}
           onChange={handleChangeCity}
         />
-
         <button type='submit' className='btn btn-primary'>
           Search
         </button>
       </form>
       {dataWeather && (
         <div className='cards d-flex justify-content-center align-items-center'>
-          {/* FirstDay */}
           <div className='weatherCard'>
             <div className='headerCardWeather d-flex align-items-center justify-content-between'>
               <h2 className='cityName'>
                 {dataWeather.city_name}
-                <span className='country'>
-                  {' '}
-                  {dataWeather.country_code}
-                </span>{' '}
-                <h5>{firstDay}</h5>
+                <span className='country'> {dataWeather.country_code}</span>
               </h2>
-
               <span className='HeaderCardTemp d-flex align-items-center'>
                 <h2>{dataWeather.data[0].temp}°C</h2>
                 <img
@@ -91,7 +131,6 @@ export const SearchCity = () => {
                 />
               </span>
             </div>
-
             <div className='align-items-center justify-content-around'>
               <h5>
                 Timezone:{' '}
@@ -135,207 +174,12 @@ export const SearchCity = () => {
               </h5>
             </div>
           </div>
-
-          <div className='cards d-flex align-items-center justify-content-evenly '>
-            {/* SecondDay */}
-            <div className='secondaryWeatherCard'>
-              <div className='align-items-center justify-content-around'>
-                <div className='headerCardWeather d-flex align-items-center justify-content-between'>
-                  <h5>{secondDay}</h5>
-                  <img
-                    className='iconWeatherSecondary'
-                    src={`https://www.weatherbit.io/static/img/icons/${dataWeather.data[1].weather.icon}.png`}
-                    alt='Weather Icon'
-                  />
-                </div>
-                <h6>
-                  Min Temp:{' '}
-                  <span className='textDataWeather'>
-                    {dataWeather.data[1].min_temp}°C
-                  </span>
-                </h6>
-                <h6>
-                  Max Temp:{' '}
-                  <span className='textDataWeather'>
-                    {dataWeather.data[1].max_temp}°C
-                  </span>
-                </h6>
-                <h6>
-                  Condition:{' '}
-                  <span className='textDataWeather'>
-                    {dataWeather.data[1].weather.description}
-                  </span>
-                </h6>
-                <h6>
-                  Precipitation:{' '}
-                  <span className='textDataWeather'>
-                    {dataWeather.data[1].precip}%
-                  </span>
-                </h6>
-                <h6>
-                  Wind Direction:{' '}
-                  <span className='textDataWeather'>
-                    {dataWeather.data[1].wind_cdir_full}
-                  </span>
-                </h6>
-                <h6>
-                  Wind Speed:{' '}
-                  <span className='textDataWeather'>
-                    {dataWeather.data[1].wind_spd} km/h
-                  </span>
-                </h6>
-              </div>
-            </div>
-
-            {/* ThirdDay */}
-            <div className='secondaryWeatherCard'>
-              <div className='align-items-center justify-content-around'>
-                <div className='headerCardWeather d-flex align-items-center justify-content-between'>
-                  <h5>{thirdDay}</h5>
-                  <img
-                    className='iconWeatherSecondary'
-                    src={`https://www.weatherbit.io/static/img/icons/${dataWeather.data[2].weather.icon}.png`}
-                    alt='Weather Icon'
-                  />
-                </div>
-                <h6>
-                  Min Temp:{' '}
-                  <span className='textDataWeather'>
-                    {dataWeather.data[2].min_temp}°C
-                  </span>
-                </h6>
-                <h6>
-                  Max Temp:{' '}
-                  <span className='textDataWeather'>
-                    {dataWeather.data[2].max_temp}°C
-                  </span>
-                </h6>
-                <h6>
-                  Condition:{' '}
-                  <span className='textDataWeather'>
-                    {dataWeather.data[2].weather.description}
-                  </span>
-                </h6>
-                <h6>
-                  Precipitation:{' '}
-                  <span className='textDataWeather'>
-                    {dataWeather.data[2].precip}%
-                  </span>
-                </h6>
-                <h6>
-                  Wind Direction:{' '}
-                  <span className='textDataWeather'>
-                    {dataWeather.data[2].wind_cdir_full}
-                  </span>
-                </h6>
-                <h6>
-                  Wind Speed:{' '}
-                  <span className='textDataWeather'>
-                    {dataWeather.data[2].wind_spd} km/h
-                  </span>
-                </h6>
-              </div>
-            </div>
-
-            {/* FourthDay */}
-            <div className='secondaryWeatherCard'>
-              <div className='align-items-center justify-content-around'>
-                <div className='headerCardWeather d-flex align-items-center justify-content-between'>
-                  <h5>{fourthDay}</h5>
-                  <img
-                    className='iconWeatherSecondary'
-                    src={`https://www.weatherbit.io/static/img/icons/${dataWeather.data[3].weather.icon}.png`}
-                    alt='Weather Icon'
-                  />
-                </div>
-                <h6>
-                  Min Temp:{' '}
-                  <span className='textDataWeather'>
-                    {dataWeather.data[3].min_temp}°C
-                  </span>
-                </h6>
-                <h6>
-                  Max Temp:{' '}
-                  <span className='textDataWeather'>
-                    {dataWeather.data[3].max_temp}°C
-                  </span>
-                </h6>
-                <h6>
-                  Condition:{' '}
-                  <span className='textDataWeather'>
-                    {dataWeather.data[3].weather.description}
-                  </span>
-                </h6>
-                <h6>
-                  Precipitation:{' '}
-                  <span className='textDataWeather'>
-                    {dataWeather.data[3].precip}%
-                  </span>
-                </h6>
-                <h6>
-                  Wind Direction:{' '}
-                  <span className='textDataWeather'>
-                    {dataWeather.data[3].wind_cdir_full}
-                  </span>
-                </h6>
-                <h6>
-                  Wind Speed:{' '}
-                  <span className='textDataWeather'>
-                    {dataWeather.data[3].wind_spd} km/h
-                  </span>
-                </h6>
-              </div>
-            </div>
-
-            {/* FifthDay */}
-            <div className='secondaryWeatherCard'>
-              <div className='align-items-center justify-content-around'>
-                <div className='headerCardWeather d-flex align-items-center justify-content-between'>
-                  <h5>{fifthDay}</h5>
-                  <img
-                    className='iconWeatherSecondary'
-                    src={`https://www.weatherbit.io/static/img/icons/${dataWeather.data[4].weather.icon}.png`}
-                    alt='Weather Icon'
-                  />
-                </div>
-                <h6>
-                  Min Temp:{' '}
-                  <span className='textDataWeather'>
-                    {dataWeather.data[4].min_temp}°C
-                  </span>
-                </h6>
-                <h6>
-                  Max Temp:{' '}
-                  <span className='textDataWeather'>
-                    {dataWeather.data[4].max_temp}°C
-                  </span>
-                </h6>
-                <h6>
-                  Condition:{' '}
-                  <span className='textDataWeather'>
-                    {dataWeather.data[4].weather.description}
-                  </span>
-                </h6>
-                <h6>
-                  Precipitation:{' '}
-                  <span className='textDataWeather'>
-                    {dataWeather.data[4].precip}%
-                  </span>
-                </h6>
-                <h6>
-                  Wind Direction:{' '}
-                  <span className='textDataWeather'>
-                    {dataWeather.data[4].wind_cdir_full}
-                  </span>
-                </h6>
-                <h6>
-                  Wind Speed:{' '}
-                  <span className='textDataWeather'>
-                    {dataWeather.data[4].wind_spd} km/h
-                  </span>
-                </h6>
-              </div>
-            </div>
+          <div className='cards d-flex align-items-center justify-content-evenly'>
+            <WeatherCard dayIndex={1} />
+            <WeatherCard dayIndex={2} />
+            <WeatherCard dayIndex={3} />
+            <WeatherCard dayIndex={4} />
+            <WeatherCard dayIndex={5} />
           </div>
         </div>
       )}

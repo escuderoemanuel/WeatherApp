@@ -16,7 +16,8 @@ body {
 
 @media screen and (max-width: 900px) {
   body {
-    background-image: url('./assets/img/background4.jpg');
+    background-image: url('./assets/img/background3.jpg');
     background-size: auto;
+    background-repeat: no-repeat;
   }
 }
