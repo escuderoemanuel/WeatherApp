@@ -5,9 +5,7 @@ import './WeatherApp.css';
 export const WeatherApp = () => {
   return (
     <>
-      <div className='container'>
-        <Header></Header>.
-      </div>
+      <Header></Header>.
       <div className='containerCenter'>
         <Body></Body>
         <Footer></Footer>

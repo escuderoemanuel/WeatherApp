@@ -1,20 +1,42 @@
 form {
   width: 650px;
   margin-bottom: 2.5rem;
+  margin: 1rem;
 }
 
 input {
   margin-right: 0.5rem;
 }
 
+.cards {
+  flex-wrap: wrap;
+}
+
 .weatherCard {
-  width: 650px;
-  min-height: 150px;
+  color: whitesmoke;
+  width: 550px;
+  height: 380px;
   padding: 1rem 2rem;
-  background-color: rgba(228, 228, 228, 0.3);
+  background-color: rgba(0, 102, 255, 0.5);
   backdrop-filter: blur(10px);
   border: none;
   border-radius: 15px;
+  margin: 1rem;
+}
+
+.secondaryWeatherCard {
+  width: 250px;
+  height: 380px;
+  padding: 1rem;
+  background-color: rgba(235, 235, 235, 0.5);
+  backdrop-filter: blur(10px);
+  border: none;
+  border-radius: 15px;
+  margin: 1rem;
+}
+
+.secondaryWeatherCard .textDataWeather {
+  color: rgb(46, 46, 46);
 }
 
 .iconWeather {
@@ -34,6 +56,23 @@ input {
   }
 }
 
+.iconWeatherSecondary {
+  width: 100px;
+  animation: flotarSecondary 3s ease-in-out infinite;
+}
+
+@keyframes flotarSecondary {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 h2 {
   font-weight: bold;
 }
@@ -42,13 +81,19 @@ h2 {
   font-weight: lighter;
 }
 
-h5 {
+h5,
+h6 {
   font-weight: 600;
+}
+
+h6 span,
+h5 span {
+  font-size: 1em;
 }
 
 .textDataWeather {
   font-weight: lighter;
-  color: rgb(70, 70, 70);
+  color: whitesmoke;
 }
 
 @media screen and (max-width: 900px) {

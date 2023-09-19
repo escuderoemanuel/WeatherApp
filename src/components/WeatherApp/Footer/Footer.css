@@ -10,7 +10,6 @@
   align-items: center;
   background-color: rgba(228, 228, 228, 0.3);
   backdrop-filter: blur(5px);
-  height: 10vh;
 }
 
 .footerContainer {

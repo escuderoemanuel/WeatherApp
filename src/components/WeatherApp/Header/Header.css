@@ -1,18 +1,21 @@
 .header {
   height: 15vh;
   margin-bottom: 2rem;
+  padding-left: 4rem;
+  color: orange;
 }
 
 h1 {
   font-size: 2.5em;
   font-weight: bolder;
-  color: #222222;
+  text-decoration: underline;
 }
 
 span {
-  font-weight: 600;
+  font-weight: lighter;
+  font-size: 0.6em;
 }
 
 .sunIcon {
-  height: 38px;
+  height: 70px;
 }
