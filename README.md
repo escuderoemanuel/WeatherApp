@@ -1,5 +1,7 @@
 # WeatherApp
 
+![Project Poster](https://i.ibb.co/LNMzZ1X/Weather-App.jpgimages/logo.png)
+
 ## Emanuel Escudero
 
 ##### FrontEnd Developer
