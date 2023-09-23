@@ -9,15 +9,7 @@ body {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-family: 'Urbanist', sans-serif;
   color: rgb(73, 73, 73);
-  background-image: url('./assets/img/background4.jpg');
-  background-size: cover;
+  background-image: url('./assets/img/background5.png');
+  background-size: auto;
   background-repeat: no-repeat;
-}
-
-@media screen and (max-width: 900px) {
-  body {
-    background-image: url('./assets/img/background3.jpg');
-    background-size: auto;
-    background-repeat: no-repeat;
-  }
 }

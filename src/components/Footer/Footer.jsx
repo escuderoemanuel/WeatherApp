@@ -1,5 +1,5 @@
 import './Footer.css';
-import logoDev from '../../../assets/img/logoDev.png';
+import logoDev from '../../assets/img/logoDev.png';
 
 export const Footer = () => {
   return (

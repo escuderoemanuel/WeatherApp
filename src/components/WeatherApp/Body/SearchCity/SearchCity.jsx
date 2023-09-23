@@ -17,6 +17,7 @@ const daysToShow = [
   'Monday',
   'Tuesday',
   'Wednesday',
+  'Thursday',
 ];
 
 export const SearchCity = () => {
@@ -98,6 +99,7 @@ export const SearchCity = () => {
     );
   };
 
+  /* MAIN CARD */
   return (
     <div className='d-flex flex-column align-items-center justify-content-center'>
       <form className='d-flex' onSubmit={handleSubmit}>
@@ -174,12 +176,13 @@ export const SearchCity = () => {
               </h5>
             </div>
           </div>
-          <div className='cards d-flex align-items-center justify-content-evenly'>
+          <div className='cards d-flex align-items-center justify-content-center'>
             <WeatherCard dayIndex={1} />
             <WeatherCard dayIndex={2} />
             <WeatherCard dayIndex={3} />
             <WeatherCard dayIndex={4} />
             <WeatherCard dayIndex={5} />
+            <WeatherCard dayIndex={6} />
           </div>
         </div>
       )}

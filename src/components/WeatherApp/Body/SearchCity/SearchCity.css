@@ -8,6 +8,7 @@ input {
 }
 
 .cards {
+  
   flex-wrap: wrap;
   margin-top: 1rem;
 }
@@ -17,7 +18,7 @@ input {
   width: 550px;
   height: 380px;
   padding: 1rem 2rem;
-  background-color: rgba(0, 102, 255, 0.5);
+  background-color: rgba(0, 102, 255, 0.4);
   backdrop-filter: blur(10px);
   border: none;
   border-radius: 15px;
@@ -28,7 +29,7 @@ input {
   width: 250px;
   height: 380px;
   padding: 1rem;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(10px);
   border: none;
   border-radius: 15px;
@@ -107,8 +108,8 @@ h5 span {
   }
 
   .weatherCard {
-    width: 350px;
-    height: 360px;
+    width: 90vw;
+    height: auto;
     padding: 1rem 2rem;
     border: none;
     border-radius: 15px;
@@ -116,8 +117,9 @@ h5 span {
   }
 
   .secondaryWeatherCard {
-    height: 300px;
-    margin: 0.5rem;
+    min-height: 340px;
+    height: auto;
+    margin-bottom: 0.5rem;
   }
 
   .secondaryWeatherCard:last-child {
@@ -138,5 +140,23 @@ h5 span {
 
   h5 {
     font-weight: 600;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .weatherCard {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 15px;
+    margin: 0rem;
+  }
+
+  .iconWeather,
+  .iconWeatherSecondary {
+    width: 60px;
+  }
+
+  .headerCardWeather {
+    flex-wrap: wrap;
   }
 }

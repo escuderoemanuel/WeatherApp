@@ -1,4 +1,4 @@
-import sunIcon3 from '../../../assets/img/iconHeader2.png';
+import sunIcon3 from '../../assets/img/iconHeader2.png';
 import '../Header/Header.css';
 
 export const Header = () => {
